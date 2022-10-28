@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>MyMaria</AssemblyName>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <OutputType>Library</OutputType>
+
+    <Version>0.1.0</Version>
+    <Authors>Phil Silva</Authors>
+    <Description>A simple, cross-platform PowerShell module for working with MySQL and MariaDB</Description>
+    <PackageProjectUrl>https://github.com/badmrspoon/MyMaria</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/badmrspoon/MyMaria</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+
+    <PackageTags>MySQL;MariaDB;PowerShell;Database;SQL</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.0.31" />
+    <PackageReference Include="PowerShellStandard.Library" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="MyMaria.psd1">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
