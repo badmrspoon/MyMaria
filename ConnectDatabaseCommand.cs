@@ -37,7 +37,9 @@ namespace MyMaria
             string connectionString = $"server={ComputerName};port={Port};uid={Credential.UserName};pwd=\"{Credential.GetNetworkCredential().Password}\";";
 
             if (MyInvocation.BoundParameters.ContainsKey("Database"))
+            {
                 connectionString = string.Concat(connectionString, $"database={Database};");
+            }
 
             connectionString = string.Concat(
                 connectionString,
@@ -47,7 +49,9 @@ namespace MyMaria
             connection.Open();
 
             if (MyInvocation.BoundParameters.ContainsKey("Database"))
+            {
                 _ = new MySqlCommand($"USE {Database}", connection);
+            }
 
             SessionState.PSVariable.Set(new PSVariable(SessionVariables.ConnectionName, connection, ScopedItemOptions.Private));
             WriteObject(connection);

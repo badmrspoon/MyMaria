@@ -20,7 +20,9 @@ namespace MyMaria
         protected override void ProcessRecord()
         {
             if (Connection == null)
+            {
                 Connection = (MySqlConnection)SessionState.PSVariable.GetValue(SessionVariables.ConnectionName);
+            }
 
             using (var command = new MySqlCommand($"{Query}", Connection))
             {

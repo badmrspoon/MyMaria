@@ -19,7 +19,9 @@ namespace MyMaria
         protected override void ProcessRecord()
         {
             if (Connection == null)
+            {
                 Connection = (MySqlConnection)SessionState.PSVariable.GetValue(SessionVariables.ConnectionName);
+            }
 
             using (var dataAdapter = new MySqlDataAdapter(new MySqlCommand($"{Query}", Connection)))
             {
@@ -30,7 +32,9 @@ namespace MyMaria
                     foreach (System.Data.DataTable table in dataSet.Tables)
                     {
                         foreach (System.Data.DataRow row in table.Rows)
+                        {
                             WriteObject(row);
+                        }
                     }
                 }
             }
